@@ -1,5 +1,5 @@
 name 'thias-dovecot'
-version '0.1.0'
+version '0.1.1'
 source 'git://github.com/thias/puppet-dovecot'
 author 'Matthias Saou'
 license 'Apache 2.0'
