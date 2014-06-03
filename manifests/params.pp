@@ -5,7 +5,7 @@ class dovecot::params {
             $plugins_before = 'dovecot'
         }
         'Debian': {
-            $core_packages = ['dovecot-core', 'dovecot-imap', 'dovecot-pop3']
+            $core_packages = ['dovecot-core', 'dovecot-imapd', 'dovecot-pop3d']
             $plugins_before = 'dovecot-core'
         }
         default: {
