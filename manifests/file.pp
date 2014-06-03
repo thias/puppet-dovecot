@@ -13,7 +13,10 @@ define dovecot::file (
   $mode    = '0644',
   $content = undef,
   $source  = undef
-) inherits ::dovecot::params {
+) {
+  
+  include ::dovecot::params
+
   file { "/etc/dovecot/${title}":
     owner   => $owner,
     group   => $group,
