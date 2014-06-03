@@ -13,14 +13,14 @@ define dovecot::file (
   $mode    = '0644',
   $content = undef,
   $source  = undef
-) {
+) inherits ::dovecot::params {
   file { "/etc/dovecot/${title}":
     owner   => $owner,
     group   => $group,
     mode    => $mode,
     content => $content,
     source  => $source,
-    require => Package['dovecot'],
+    require => Package[$::dovecot::params::plugins_before],
     notify  => Service['dovecot'],
   }
 }
