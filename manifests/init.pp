@@ -49,7 +49,7 @@ class dovecot (
   # auth-sql.conf.ext
   $auth_sql_userdb_static     = undef
 
-) {
+) inherits ::dovecot::params {
 
   # All files in this scope are dovecot configuration files
   File {
