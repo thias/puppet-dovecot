@@ -63,8 +63,8 @@ class dovecot (
   # Main package and service it provides
   package { 'dovecot': ensure => installed }
   service { 'dovecot':
-    enable    => true,
     ensure    => running,
+    enable    => true,
     hasstatus => true,
     require   => File['/etc/dovecot/dovecot.conf'],
   }
