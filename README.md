@@ -4,8 +4,14 @@
 
 Install, enable and configure the Dovecot IMAP server.
 This module relies heavily on the conf.d structure adopted by dovecot 2.x.
-It has only been tested on Red Hat Enterprise Linux, but contributions to port
-it to other distributions are welcome.
+
+## Supported Platforms
+
+* Red Hat
+* Debian
+* Ubuntu
+
+## Classes
 
 * `dovecot` : Main class
 * `dovecot::file` : Definition to manage configuration file snippets
