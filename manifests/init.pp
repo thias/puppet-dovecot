@@ -52,20 +52,22 @@ class dovecot (
 
 ) {
 
+  include dovecot::params
+
   # All files in this scope are dovecot configuration files
   File {
     notify  => Service['dovecot'],
-    require => Package['dovecot'],
+    require => Package[$dovecot::params::package_name],
   }
 
   # Install plugins (sub-packages)
-  dovecot::plugin { $plugins: before => Package['dovecot'] }
+  dovecot::plugin { $plugins: before => Package[$dovecot::params::package_name] }
 
   # Main package and service it provides
-  package { 'dovecot': ensure => installed }
+  package { $dovecot::params::package_name: ensure => installed }
   service { 'dovecot':
-    enable    => true,
     ensure    => running,
+    enable    => true,
     hasstatus => true,
     require   => File['/etc/dovecot/dovecot.conf'],
   }
