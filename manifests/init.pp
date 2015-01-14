@@ -50,19 +50,19 @@ class dovecot (
   # auth-sql.conf.ext
   $auth_sql_userdb_static     = undef
 
-) {
+) inherits ::dovecot::params {
 
   # All files in this scope are dovecot configuration files
   File {
     notify  => Service['dovecot'],
-    require => Package['dovecot'],
+    require => Package[$::dovecot::params::plugins_before],
   }
 
   # Install plugins (sub-packages)
-  dovecot::plugin { $plugins: before => Package['dovecot'] }
+  dovecot::plugin { $plugins: before => Package[$::dovecot::params::plugins_before] }
 
   # Main package and service it provides
-  package { 'dovecot': ensure => installed }
+  package { $::dovecot::params::core_packages: ensure => installed }
   service { 'dovecot':
     enable    => true,
     ensure    => running,

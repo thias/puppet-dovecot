@@ -14,13 +14,16 @@ define dovecot::file (
   $content = undef,
   $source  = undef
 ) {
+  
+  include ::dovecot::params
+
   file { "/etc/dovecot/${title}":
     owner   => $owner,
     group   => $group,
     mode    => $mode,
     content => $content,
     source  => $source,
-    require => Package['dovecot'],
+    require => Package[$::dovecot::params::plugins_before],
     notify  => Service['dovecot'],
   }
 }
