@@ -52,3 +52,8 @@ ssl_cipher_list = <%= @ssl_cipher_list %>
 ssl_protocols = <%= @ssl_protocols %>
 <% end -%>
 
+# Prefer the server's order of ciphers over client's.
+#ssl_prefer_server_ciphers = no
+<% if @ssl_prefer_server_ciphers -%>
+ssl_prefer_server_ciphers = <%= @ssl_prefer_server_ciphers %>
+<% end -%>
