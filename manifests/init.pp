@@ -38,6 +38,9 @@ class dovecot (
   $auth_listener_userdb_user  = undef,
   $auth_listener_userdb_group = undef,
   $auth_listener_postfix      = false,
+  $lmtp_listener_mode  = undef,
+  $lmtp_listener_user  = undef,
+  $lmtp_listener_group = undef,
   # 10-ssl.conf
   $ssl                        = undef,
   $ssl_cert                   = '/etc/pki/dovecot/certs/dovecot.pem',

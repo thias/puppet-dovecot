@@ -57,6 +57,17 @@ service pop3-login {
 service lmtp {
   unix_listener lmtp {
     #mode = 0666
+<% if @lmtp_listener_mode -%>
+    mode = <%= @lmtp_listener_mode %>
+<% end -%>
+    #user = 
+<% if @lmtp_listener_user -%>
+    user = <%= @lmtp_listener_user %>
+<% end -%>
+    #group = 
+<% if @lmtp_listener_group -%>
+    group = <%= @lmtp_listener_group %>
+<% end -%>
   }
 
   # Create inet listener only if you can't use the above UNIX socket
