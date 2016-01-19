@@ -26,7 +26,10 @@ class dovecot (
   $auth_debug                 = undef,
   $mail_debug                 = undef,
   # 10-mail.conf
+  $mail_home                  = undef,
   $mail_location              = undef,
+  $mail_uid                   = undef,
+  $mail_gid                   = undef,
   # 10-master.conf
   $default_process_limit      = undef,
   $default_client_limit       = undef,

@@ -28,6 +28,9 @@
 # <doc/wiki/MailLocation.txt>
 #
 #mail_location = 
+<% if @mail_home -%>
+mail_home = <%= @mail_home %>
+<% end -%>
 <% if @mail_location -%>
 mail_location = <%= @mail_location %>
 <% end -%>
@@ -111,6 +114,13 @@ mail_location = <%= @mail_location %>
 # or names. <doc/wiki/UserIds.txt>
 #mail_uid =
 #mail_gid =
+<% if @mail_uid -%>
+mail_uid = <%= @mail_uid %>
+<% end -%>
+<% if @mail_gid -%>
+mail_gid = <%= @mail_gid %>
+<% end -%>
+
 
 # Group to enable temporarily for privileged operations. Currently this is
 # used only with INBOX when either its initial creation or dotlocking fails.
