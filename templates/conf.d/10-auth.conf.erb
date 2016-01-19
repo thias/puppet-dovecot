@@ -14,6 +14,9 @@ disable_plaintext_auth = <%= @disable_plaintext_auth %>
 # Authentication cache size (e.g. 10M). 0 means it's disabled. Note that
 # bsdauth, PAM and vpopmail require cache_key to be set for caching to be used.
 #auth_cache_size = 0
+<% if @auth_cache_size -%>
+auth_cache_size = <%= @auth_cache_size %>
+<% end -%>
 # Time to live for cached data. After TTL expires the cached record is no
 # longer used, *except* if the main database lookup returns internal failure.
 # We also try to handle password changes automatically: If user's previous
