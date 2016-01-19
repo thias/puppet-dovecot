@@ -30,6 +30,7 @@ class dovecot (
   # 10-master.conf
   $default_process_limit      = undef,
   $default_client_limit       = undef,
+  $default_vsz_limit          = undef,
   $auth_listener_userdb_mode  = undef,
   $auth_listener_userdb_user  = undef,
   $auth_listener_userdb_group = undef,
