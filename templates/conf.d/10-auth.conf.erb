@@ -61,6 +61,9 @@ auth_username_chars = <%= @auth_username_chars %>
 # is then <username><separator><master username>. UW-IMAP uses "*" as the
 # separator, so that could be a good choice.
 #auth_master_user_separator =
+<% if @auth_master_user_separator -%>
+auth_master_user_separator = <%= @auth_master_user_separator %>
+<% end -%>
 
 # Username to use for users logging in with ANONYMOUS SASL mechanism
 #auth_anonymous_username = anonymous

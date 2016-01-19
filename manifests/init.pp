@@ -19,6 +19,7 @@ class dovecot (
   $auth_username_chars        = undef,
   $auth_mechanisms            = 'plain',
   $auth_include               = [ 'system' ],
+  $auth_master_user_separator = undef,
   # 10-logging.conf
   $log_path                   = undef,
   $log_timestamp              = undef,
