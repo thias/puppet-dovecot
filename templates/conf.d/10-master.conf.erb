@@ -36,6 +36,9 @@ service imap-login {
   # the only useful values are 0 (unlimited) or 1. 1 is more secure, but 0
   # is faster. <doc/wiki/LoginProcess.txt>
   #service_count = 1
+<% if @imap_login_service_count -%>
+   service_count = <%= @imap_login_service_count %>
+<% end -%>
 
   # Number of processes to always keep waiting for more connections.
   #process_min_avail = 0
