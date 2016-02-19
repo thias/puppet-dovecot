@@ -11,6 +11,9 @@ default_client_limit = <%= @default_client_limit %>
 # intended to catch and kill processes that leak memory before they eat up
 # everything.
 #default_vsz_limit = 256M
+<% if @default_vsz_limit -%>
+default_vsz_limit = <%= @default_vsz_limit %>
+<% end -%>
 
 # Login user is internally used by login processes. This is the most untrusted
 # user in Dovecot system. It shouldn't have access to anything at all.
@@ -33,6 +36,9 @@ service imap-login {
   # the only useful values are 0 (unlimited) or 1. 1 is more secure, but 0
   # is faster. <doc/wiki/LoginProcess.txt>
   #service_count = 1
+<% if @imap_login_service_count -%>
+   service_count = <%= @imap_login_service_count %>
+<% end -%>
 
   # Number of processes to always keep waiting for more connections.
   #process_min_avail = 0
@@ -54,6 +60,17 @@ service pop3-login {
 service lmtp {
   unix_listener lmtp {
     #mode = 0666
+<% if @lmtp_listener_mode -%>
+    mode = <%= @lmtp_listener_mode %>
+<% end -%>
+    #user = 
+<% if @lmtp_listener_user -%>
+    user = <%= @lmtp_listener_user %>
+<% end -%>
+    #group = 
+<% if @lmtp_listener_group -%>
+    group = <%= @lmtp_listener_group %>
+<% end -%>
   }
 
   # Create inet listener only if you can't use the above UNIX socket

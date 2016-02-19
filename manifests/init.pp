@@ -16,9 +16,11 @@ class dovecot (
   $shutdown_clients           = undef,
   # 10-auth.conf
   $disable_plaintext_auth     = undef,
+  $auth_cache_size            = undef,
   $auth_username_chars        = undef,
   $auth_mechanisms            = 'plain',
   $auth_include               = [ 'system' ],
+  $auth_master_user_separator = undef,
   # 10-logging.conf
   $log_path                   = undef,
   $log_timestamp              = undef,
@@ -26,14 +28,22 @@ class dovecot (
   $auth_debug                 = undef,
   $mail_debug                 = undef,
   # 10-mail.conf
+  $mail_home                  = undef,
   $mail_location              = undef,
+  $mail_uid                   = undef,
+  $mail_gid                   = undef,
   # 10-master.conf
   $default_process_limit      = undef,
   $default_client_limit       = undef,
+  $default_vsz_limit          = undef,
   $auth_listener_userdb_mode  = undef,
   $auth_listener_userdb_user  = undef,
   $auth_listener_userdb_group = undef,
   $auth_listener_postfix      = false,
+  $imap_login_service_count   = undef,
+  $lmtp_listener_mode  = undef,
+  $lmtp_listener_user  = undef,
+  $lmtp_listener_group = undef,
   # 10-ssl.conf
   $ssl                        = undef,
   $ssl_cert                   = '/etc/pki/dovecot/certs/dovecot.pem',
@@ -47,6 +57,10 @@ class dovecot (
   # 90-sieve.conf
   $sieve                      = '~/.dovecot.sieve',
   $sieve_dir                  = '~/sieve',
+  $sieve_global_dir           = undef,
+  $sieve_extensions           = undef,
+  $sieve_before               = undef,
+  $sieve_after                = undef,
   # auth-sql.conf.ext
   $auth_sql_userdb_static     = undef
 

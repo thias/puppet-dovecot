@@ -28,6 +28,9 @@
 # <doc/wiki/MailLocation.txt>
 #
 #mail_location = 
+<% if @mail_home -%>
+mail_home = <%= @mail_home %>
+<% end -%>
 <% if @mail_location -%>
 mail_location = <%= @mail_location %>
 <% end -%>
@@ -48,6 +51,7 @@ mail_location = <%= @mail_location %>
 # without a location setting. Default namespace is simply done by having a
 # namespace with empty prefix.
 #namespace {
+namespace inbox {
   # Namespace type: private, shared or public
   #type = private
 
@@ -66,7 +70,7 @@ mail_location = <%= @mail_location %>
 
   # There can be only one INBOX, and this setting defines which namespace
   # has it.
-  #inbox = no
+  inbox = yes
 
   # If namespace is hidden, it's not advertised to clients via NAMESPACE
   # extension. You'll most likely also want to set list=no. This is mostly
@@ -83,7 +87,7 @@ mail_location = <%= @mail_location %>
   # Namespace handles its own subscriptions. If set to "no", the parent
   # namespace handles them (empty prefix should always have this as "yes")
   #subscriptions = yes
-#}
+}
 
 # Example shared namespace configuration
 #namespace {
@@ -111,6 +115,13 @@ mail_location = <%= @mail_location %>
 # or names. <doc/wiki/UserIds.txt>
 #mail_uid =
 #mail_gid =
+<% if @mail_uid -%>
+mail_uid = <%= @mail_uid %>
+<% end -%>
+<% if @mail_gid -%>
+mail_gid = <%= @mail_gid %>
+<% end -%>
+
 
 # Group to enable temporarily for privileged operations. Currently this is
 # used only with INBOX when either its initial creation or dotlocking fails.
