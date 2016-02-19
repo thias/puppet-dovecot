@@ -57,6 +57,10 @@ class dovecot (
   # 90-sieve.conf
   $sieve                      = '~/.dovecot.sieve',
   $sieve_dir                  = '~/sieve',
+  $sieve_global_dir           = undef,
+  $sieve_extensions           = undef,
+  $sieve_before               = undef,
+  $sieve_after                = undef,
   # auth-sql.conf.ext
   $auth_sql_userdb_static     = undef
 

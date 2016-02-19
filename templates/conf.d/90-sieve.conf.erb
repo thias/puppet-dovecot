@@ -20,6 +20,9 @@ plugin {
 
   # Directory for :global include scripts for the include extension. 
   #sieve_global_dir =
+<% if @sieve_global_dir -%>
+  sieve_global_dir = <%= @sieve_global_dir %>
+<% end -%>
 
   # Which Sieve language extensions are available to users. By default,
   # all supported extensions are available, except for deprecated
@@ -31,6 +34,17 @@ plugin {
   # deprecated imapflags extension in addition to all extensions 
   # enabled by default. 
   #sieve_extensions = +notify +imapflags
+<% if @sieve_extensions -%>
+  sieve_extensions = <%= @sieve_extensions %>
+<% end -%>
+
+<% if @sieve_before -%>
+  sieve_before = <%= @sieve_before %>
+<% end -%>
+
+<% if @sieve_after -%>
+  sieve_after = <%= @sieve_after %>
+<% end -%>
 
   # The separator that is expected between the :user and :detail 
   # address parts introduced by the subaddress extension. This may 
