@@ -52,6 +52,8 @@ class dovecot (
 
 ) {
 
+  include dovecot::params
+
   # All files in this scope are dovecot configuration files
   File {
     notify  => Service['dovecot'],
@@ -83,7 +85,8 @@ class dovecot (
     content => template('dovecot/conf.d/10-logging.conf.erb'),
   }
   file { '/etc/dovecot/conf.d/10-mail.conf':
-    content => template('dovecot/conf.d/10-mail.conf.erb'),
+    content => template(
+      "dovecot/${dovecot::params::dir_10_mail}/conf.d/10-mail.conf.erb"),
   }
   file { '/etc/dovecot/conf.d/10-master.conf':
     content => template('dovecot/conf.d/10-master.conf.erb'),
