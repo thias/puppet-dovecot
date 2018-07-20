@@ -13,7 +13,11 @@ plugin {
   # if user's private Sieve script doesn't exist. Be sure to 
   # pre-compile this script manually using the sievec command line 
   # tool.
+<% if @sieve_global_path -%>
+  sieve_global_path = <%= @sieve_global_path %>
+<% else -%>
   #sieve_global_path = /var/lib/dovecot/sieve/default.sieve
+<% end -%>
 
   # Directory for :personal include scripts for the include extension. 
   sieve_dir = <%= @sieve_dir %>

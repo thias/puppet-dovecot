@@ -207,7 +207,11 @@ mail_location = <%= @mail_location %>
 
 # Space separated list of plugins to load for all services. Plugins specific to
 # IMAP, LDA, etc. are added to this list in their own .conf files.
+<% if @mail_plugins -%>
+mail_plugins = <%= @mail_plugins %>
+<% else -%>
 #mail_plugins = 
+<% end -%>
 
 ##
 ## Mailbox handling optimizations

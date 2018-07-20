@@ -27,6 +27,7 @@ class dovecot (
   $mail_debug                 = undef,
   # 10-mail.conf
   $mail_location              = undef,
+  $mail_plugins               = undef,
   # 10-master.conf
   $default_process_limit      = undef,
   $default_client_limit       = undef,
@@ -44,9 +45,12 @@ class dovecot (
   $postmaster_address         = undef,
   $hostname                   = undef,
   $lda_mail_plugins           = undef,
+  # 20-imap.conf
+  $imap_mail_plugins          = undef,
   # 90-sieve.conf
   $sieve                      = '~/.dovecot.sieve',
   $sieve_dir                  = '~/sieve',
+  $sieve_global_path          = undef,
   # auth-sql.conf.ext
   $auth_sql_userdb_static     = undef
 
