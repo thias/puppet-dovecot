@@ -98,6 +98,12 @@ class dovecot (
   file { '/etc/dovecot/conf.d/15-lda.conf':
     content => template('dovecot/conf.d/15-lda.conf.erb'),
   }
+  file { '/etc/dovecot/conf.d/20-imap.conf':
+    content => template('dovecot/conf.d/20-imap.conf.erb'),
+  }
+  file { '/etc/dovecot/conf.d/90-quota.conf':
+    content => template('dovecot/conf.d/90-quota.conf.erb'),
+  }
   file { '/etc/dovecot/conf.d/90-sieve.conf':
     content => template('dovecot/conf.d/90-sieve.conf.erb'),
   }
