@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "author": "efoft",
   "license": "Apache-2.0",
-  "summary": "Dovecot module forked from thias-postfix",
+  "summary": "Dovecot module forked from thias-dovecot",
   "source": "git://github.com/efoft/puppet-dovecot",
   "operatingsystem_support": [
     {
