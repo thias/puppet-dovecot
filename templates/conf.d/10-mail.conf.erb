@@ -27,9 +27,10 @@
 #
 # <doc/wiki/MailLocation.txt>
 #
-#mail_location = 
 <% if @mail_location -%>
 mail_location = <%= @mail_location %>
+<% else -%>
+#mail_location = 
 <% end -%>
 
 # If you need to set multiple mailbox locations or want to change default
@@ -47,7 +48,7 @@ mail_location = <%= @mail_location %>
 # explicitly, ie. mail_location does nothing unless you have a namespace
 # without a location setting. Default namespace is simply done by having a
 # namespace with empty prefix.
-#namespace {
+namespace inbox {
   # Namespace type: private, shared or public
   #type = private
 
@@ -66,7 +67,7 @@ mail_location = <%= @mail_location %>
 
   # There can be only one INBOX, and this setting defines which namespace
   # has it.
-  #inbox = no
+  inbox = yes
 
   # If namespace is hidden, it's not advertised to clients via NAMESPACE
   # extension. You'll most likely also want to set list=no. This is mostly
@@ -83,7 +84,7 @@ mail_location = <%= @mail_location %>
   # Namespace handles its own subscriptions. If set to "no", the parent
   # namespace handles them (empty prefix should always have this as "yes")
   #subscriptions = yes
-#}
+}
 
 # Example shared namespace configuration
 #namespace {
@@ -207,7 +208,11 @@ mail_location = <%= @mail_location %>
 
 # Space separated list of plugins to load for all services. Plugins specific to
 # IMAP, LDA, etc. are added to this list in their own .conf files.
+<% if @mail_plugins -%>
+mail_plugins = <%= @mail_plugins %>
+<% else -%>
 #mail_plugins = 
+<% end -%>
 
 ##
 ## Mailbox handling optimizations
